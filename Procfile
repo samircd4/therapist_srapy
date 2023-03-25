@@ -1,1 +1,1 @@
-web: gunicorn get_therapist.wsgi --log-file -
+web: gunicorn therapist.wsgi --log-file -
