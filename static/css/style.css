@@ -1,0 +1,11 @@
+.card:hover{
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+}
+.dropdown-c{
+    border: 1px solid black !important;
+    border-radius: 10%;
+}
+.dropdown-sticky{
+    position: sticky;
+    top: 57px;
+}

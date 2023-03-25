@@ -1,0 +1,234 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Get A therapist</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+  <header class="">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary container-fluid fixed-top  ">
+      <div class="d-flex justify-content-between container w-100">
+        <div>
+          <a class="navbar-brand" href="#">Get A therapist</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div>
+          <form class="d-flex" role="search" method="GET">
+            <input class="form-control me-2" type="search" name="q" placeholder="City, Zip or Name" aria-label="Search">
+            <button class="btn btn-outline-dark" type="submit">Search</button>
+          </form>
+        </div>
+        <div>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">log In</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-warning text-white fw-bold" href="#">Sign Up and Get Listed</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+
+    <div class="container">
+      <nav
+        style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+        aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Florida</li>
+          <li class="breadcrumb-item active" aria-current="page">Tumapa</li>
+          <li class="breadcrumb-item active" aria-current="page">City</li>
+        </ol>
+        <hr>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div>
+      <h2>Therapists in California USA</h2>
+      <hr>
+    </div>
+    <section class="d-flex sticky-top bg-white p-3 shadow dropdown-sticky">
+      <div class="dropdown me-2">
+        <button class="dropdown-toggle px-3 bg-white dropdown-c rounded-pill" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Issues
+        </button>
+        <ul class="dropdown-menu">
+          <li class="p-0">
+            <a class="dropdown-item" href="#">Issues</a>
+            <hr>
+          </li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
+      <div class="dropdown me-2">
+        <button class="px-3 dropdown-toggle bg-white dropdown-c rounded-pill" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Insurence
+        </button>
+        <ul class="dropdown-menu">
+          <li class="p-0">
+            <a class="dropdown-item" href="#">Insurence</a>
+            <hr>
+          </li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
+      <div class="dropdown me-2">
+        <button class="px-3 dropdown-toggle bg-white dropdown-c rounded-pill" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Gender
+        </button>
+        <ul class="dropdown-menu">
+          <li class="p-0">
+            <a class="dropdown-item" href="#">Gender</a>
+            <hr>
+          </li>
+          <li><a class="dropdown-item" href="#">Male</a></li>
+          <li><a class="dropdown-item" href="#">Female</a></li>
+        </ul>
+      </div>
+      <div class="dropdown me-2">
+        <button class="px-3 dropdown-toggle bg-white dropdown-c rounded-pill" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Types of therapy
+        </button>
+        <ul class="dropdown-menu">
+          <li class="p-0">
+            <p class="dropdown-item">Types of therapy</p>
+            <hr>
+          </li>
+          <li><a class="dropdown-item" href="#">Individual</a></li>
+          <li><a class="dropdown-item" href="#">Family </a></li>
+          <li><a class="dropdown-item" href="#">Couple</a></li>
+        </ul>
+      </div>
+    </section>
+    <hr>
+
+
+    <section>
+      {% for profile in profiles %}
+      <div class="card mb-3 p-2">
+        <div class="row g-0">
+          <div class="col-md-2">
+            <img src="{{profile.image_url}}" class="img-fluid rounded-start" width="160px" height="200px" alt="...">
+          </div>
+          <div class="col-md-6">
+            <div class="card-body">
+              <h3 class="card-title"><a class="text-decoration-none" href="{{profile.website}}" target="_blank">{{profile.name}}</a> {% if profile.isVerified %}<i title="Verified" class='bx bxs-badge-check' style='color:#0882f1; font-size:18px;'  ></i>{% endif %} </h3>
+              <p>{{profile.title}} </p>
+              <p class="card-text">{{profile.description}}</p>
+
+            </div>
+          </div>
+          <div class="col-md-4">
+            <h5>{{profile.phone}}</h5>
+            <a target="_blank" href="{{profile.website}}" class="btn border me-2 px-4" style="background-color: var(--bs-tertiary-bg);">View</a>
+            <button class="btn border  px-4" style="background-color: var(--bs-tertiary-bg);">Email</button>
+            <hr>
+            <p class="m-0">{{profile.address1}}</p>
+            <p class="m-0">{{profile.address2}}</p>
+            <p class="m-0">{{profile.city}}, {{profile.state}} {{profile.zip}} <b>{% if profile.isOnline %} & Online{% endif %} </b></p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </section>
+
+    <section>
+      {% if profiles.has_other_pages %}
+      <hr>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          {% if profiles.has_previous %}
+          <li class="page-item">
+            <a href="?page={{profiles.previous_page_number}}" class="page-link"><i class='bx bx-chevrons-left' ></i> Previous</a>
+          </li>
+          {% else%}
+          <li class="page-item disabled">
+            <a href="" class="page-link">Previous</a>
+          </li>
+          {% endif %}
+          {% comment %} I have to code here {% endcomment %}
+
+
+          
+          {% if profiles.number|add:'-2' > 1 %}
+          <li class="page-item"><a class="page-link" href="?page={{profiles.number|add:'-2'}}">{{profiles.number|add:'-2'}}</a></li>
+          {% endif %}
+          
+
+          {% for page in profiles.paginator.page_range %}
+          {% if page == profiles.number %}
+          <li class="page-item active"><a class="page-link" href="?page={{page}}">{{page}}</a></li>
+          {% elif page > profiles.number|add:'-2' and page < profiles.number|add:'2' %}
+          <li class="page-item"><a class="page-link" href="?page={{page}}">{{page}}</a></li>
+          {% endif %}
+          {% endfor %}
+
+          {% if profiles.paginator.num_pages > profiles.number|add:'2' %}
+          <li class="page-item"><a class="page-link">&hellip;</a></li>
+          {% endif %}
+          {% if profiles.number|add:'1' < profiles.paginator.num_pages %}
+          <li class="page-item"><a class="page-link" href="?page={{profiles.paginator.num_pages}}">{{profiles.paginator.num_pages}}</a></li>
+          {% endif %}
+
+
+          {% comment %} This is 100% correct {% endcomment %}
+          {% if profiles.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{profiles.next_page_number}}">Next <i class='bx bx-chevrons-right'></i></a>
+          </li>
+          {% else %}
+          <li class="page-item disabled">
+            <a class="page-link" href="#">Next</a>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+      <hr>
+      {% endif %}
+    </section>
+  </main>
+  <footer class="bg-primary text-center text-white p-5">
+    <p>My footer &copy;Copyright 2023 All right-reserved</p>
+  </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+</body>
+
+</html>
